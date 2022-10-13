@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+aside ul.additional-menu {
+}
+aside ul.additional-menu p {
+    @apply p-3 text-sm font-semibold text-gray-100 border-b-2 rounded-t-sm shadow-md bg-sky-700 border-sky-800;
+}
+
+aside ul.additional-menu li {
+    @apply border-b;
+}
+aside ul.additional-menu li:hover {
+    @apply bg-gray-100;
+}
+aside ul.additional-menu li:first-of-type {
+    @apply pt-2;
+}
+aside ul.additional-menu li:last-child {
+    @apply pb-2 border-b-0;
+}
+aside ul.additional-menu li a {
+    @apply flex items-center px-3 py-2 space-x-4 text-sm font-medium text-zinc-600;
+}
+aside ul.additional-menu li a.active,
+aside ul.additional-menu li a:hover {
+    @apply text-sky-600;
+}
+aside ul.additional-menu li a i {
+    @apply p-0.5 text-2xl;
+}
+aside ul.additional-menu li:hover a i {
+    @apply text-white border-0 bg-sky-900 border-sky-200;
+}
