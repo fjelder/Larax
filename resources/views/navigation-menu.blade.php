@@ -1,4 +1,5 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }"
+  class="bg-white border-b border-gray-100 dark:bg-neutral-800 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300">
   <!-- Primary Navigation Menu -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
@@ -76,6 +77,9 @@
         </div>
         @endif
 
+        <div>
+          <x-ui.theme-color-switch />
+        </div>
         <!-- Settings Dropdown -->
         <div class="ml-3 relative">
           <x-jet-dropdown align="right" width="48">
