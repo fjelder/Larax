@@ -6,7 +6,7 @@ svg .s0 {
 }
 
 aside {
-    @apply max-w-xs p-4 bg-transparent border shadow-lg border-neutral-300/30 basis-72 dark:border-neutral-600;
+    @apply max-w-xs p-4 bg-transparent border shadow-lg border-neutral-300/30 basis-64 dark:border-neutral-600;
 }
 aside ul.additional-menu {
     @apply w-full my-3;
