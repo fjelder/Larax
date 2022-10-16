@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 svg .s0 {
-    @apply fill-secondary-600;
+    @apply fill-primary-600;
 }
 
 aside {
@@ -40,5 +40,18 @@ aside ul.additional-menu {
     }
     li:last-of-type {
         @apply pb-1 border-b-0;
+    }
+}
+
+/* sidebar */
+.sidebar-menu {
+    a {
+        @apply h-10 w-12 dark:text-neutral-500 rounded-md flex items-center justify-center;
+        &.active {
+            @apply dark:bg-neutral-700 dark:text-white bg-primary-100 text-primary-500;
+        }
+        i {
+            @apply text-2xl;
+        }
     }
 }
