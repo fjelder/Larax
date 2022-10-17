@@ -84,4 +84,9 @@ class ContractController extends Controller
     {
         //
     }
+
+    public function jumpToContract(Request $request)
+    {
+        dd($request);
+    }
 }

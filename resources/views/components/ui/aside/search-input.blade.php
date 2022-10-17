@@ -3,7 +3,7 @@
 ])
 <div class="relative mt-2">
   <input type="text"
-    class="pl-8 h-9 bg-transparent border border-neutral-300 dark:border-neutral-700 dark:text-white w-full rounded-md text-sm focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+    class="pl-8 h-9 bg-transparent border border-neutral-300 dark:border-neutral-700 dark:text-white w-full text-sm focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:border-0"
     placeholder="Wyszukaj" wire:model="search" />
   <svg viewBox="0 0 24 24"
     class="w-4 absolute text-neutral-400 top-1/2 transform translate-x-0.5 -translate-y-1/2 left-2"

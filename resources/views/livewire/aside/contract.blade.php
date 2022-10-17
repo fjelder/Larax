@@ -1,6 +1,17 @@
 <div
   class="xl:w-80 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
   <div class="text-xs text-gray-400 tracking-wider">Kontrakty</div>
+  <form action="{{route('jumpToContract')}}" method="get">
+    @csrf
+    <div class="flex items-center space-x-2 justify-end relative py-2">
+      <input type="text"
+        class="bg-transparent border-b border-0 border-neutral-300 dark:border-neutral-700 dark:text-white w-full text-sm focus:ring-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:border-b focus:ring-0 focus:border-primary-500"
+        placeholder="ID kontraktu" name="id" />
+      <button class="h-full absolute right-2 top-0.5 text-primary-600" type="submit">
+        <i class="ph-arrow-elbow-down-left-bold"></i>
+      </button>
+    </div>
+  </form>
   <x-ui.aside.search-input :search=$search />
   <div class="space-y-4 mt-3">
     @foreach($contracts as $contract)

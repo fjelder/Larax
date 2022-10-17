@@ -4,8 +4,9 @@
 <button class="bg-white p-3 w-full flex flex-col rounded-md dark:bg-neutral-800 shadow">
   <div
     class="flex xl:flex-row flex-col items-center justify-between font-medium text-neutral-900 dark:text-white pb-2 mb-2 xl:border-b border-neutral-200 border-opacity-75 dark:border-neutral-700 w-full">
-    <div class="w-9 h-9 flex-shrink-0 shadow mr-2 bg-gray-600 rounded-full flex justify-center items-center text-white">
-      {{$contract->id}}
+    <div
+      class="flex-shrink-0 mr-2 rounded-md flex justify-center items-center py-0.5 px-2 text-xs bg-transparent border">
+      #<span class="font-semibold pl-1">{{$contract->id}}</span>
     </div>
     {{$contract->name}}
   </div>

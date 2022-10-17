@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContractController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +33,7 @@ Route::middleware([
     Route::resources([
         'contracts' => ContractController::class,
     ]);
+    Route::get('/jumpToContract', function (Request $request) {
+        return redirect()->route('contracts.show', $request->id);
+    })->name('jumpToContract');;
 });
