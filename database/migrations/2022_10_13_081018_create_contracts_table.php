@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->mediumText('task_name')->nullable();
-            $table->string('contract_number')->nullable();
+            $table->string('number')->nullable();
             $table->string('prefix', 100)->nullable();
             $table->date('start_date')->nullable();
             $table->date('stop_date')->nullable();
-            $table->unsignedBigInteger('contract_stage_id')->default(0);
-            $table->unsignedBigInteger('contract_study_id')->nullable();
+            $table->unsignedBigInteger('stage_id')->default(0);
+            $table->unsignedBigInteger('study_id')->nullable();
             // $table->foreign('contract_status_id')->references('id')->on('contract_statuses');
             $table->timestamps();
         });
