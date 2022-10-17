@@ -49,6 +49,9 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         //
+        return view('contract.show', [
+            'contract' => $contract
+        ]);
     }
 
     /**
