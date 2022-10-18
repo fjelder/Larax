@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class Contract extends Component
 {
-    protected object $contracts;
     public $search = '';
     public $activeContract;
     
@@ -18,9 +17,10 @@ class Contract extends Component
     
     public function render()
     {
-        $this->contracts = Contracts::where('name', 'like', $this->search.'%')->get();
+        $this->activeContract = Contracts::where('id', '=', $this->activeContract)->first();
+        $allContracts = Contracts::where('name', 'like', $this->search.'%')->get();
         return view('livewire.aside.contract', [
-            'contracts' => $this->contracts,
+            'contracts' => $allContracts,
             'active' => $this->activeContract
         ]);
     }
