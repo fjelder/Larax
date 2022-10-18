@@ -9,7 +9,8 @@
   <x-slot name="aside">
     <livewire:aside.contract />
   </x-slot>
-  <div class=" py-10 mx-auto container sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-start">
+  hiiden
+  <div class=" py-10 mx-auto container sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-start hidden">
     <aside>
       <ul class="additional-menu">
         <div class="title">

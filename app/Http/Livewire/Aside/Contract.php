@@ -5,6 +5,7 @@ use App\Models\Contract as Contracts;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class Contract extends Component
 {
     public $search = '';
@@ -12,9 +13,9 @@ class Contract extends Component
     
     public function mount(Request $request)
     {
-        $this->activeContract = Str::after($request->path(), 'contracts/');
+        $this->activeContract = Auth::user()->current_contract;
     }
-    
+
     public function render()
     {
         $this->activeContract = Contracts::where('id', '=', $this->activeContract)->first();

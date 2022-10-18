@@ -6,7 +6,7 @@
     <a href="{{ route('dashboard') }}" class="{{ active('dashboard') }}">
       <i class="ph-house-line"></i>
     </a>
-    <a href="{{ route('contracts.index') }}" class="{{ active('contracts.*') }}">
+    <a href="{{ route('contracts.show', Auth::user()->current_contract) }}" class="{{ active('contracts.*') }}">
       <i class="ph-folders"></i>
     </a>
     <a href="{{ route('contracts.index') }}">

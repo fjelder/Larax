@@ -17,7 +17,8 @@
     <div class="text-xs text-gray-400 tracking-wider">Aktywny kontrakt</div>
     <x-ui.aside.contract-block :contract=$active :active=$active />
   </div>
-
+  <div class="text-xs text-gray-400 tracking-wider border-t-2 border-neutral-500/30 border-dashed pt-6">Wszystkie
+    kontrakty</div>
   <div class="space-y-4 mt-3">
     @foreach ($contracts as $contract)
     @if($contract->id !== $active->id)

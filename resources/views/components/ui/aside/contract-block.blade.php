@@ -1,5 +1,6 @@
 @props(['contract', 'active'])
 @php
+
 if ($contract->id == $active->id) {
 $classes = 'bg-primary-50 p-3 w-full flex flex-col rounded-sm dark:bg-gray-800 shadow-md relative ring-1
 ring-primary-500/30
@@ -9,6 +10,7 @@ else
 {
 $classes = 'bg-white p-3 w-full flex flex-col rounded-sm dark:bg-neutral-800 shadow hover:scale-105';
 }
+
 @endphp
 <button {{ $attributes->merge(['class' => $classes]) }}>
   <div
