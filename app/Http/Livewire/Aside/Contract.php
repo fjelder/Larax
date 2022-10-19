@@ -9,9 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class Contract extends Component
 {
     public $search = '';
+    public $checkedStage;
     public function mount()
     {
-        // $this->checkCurrentContract();
+        if (!$this->checkedStage) {
+          $this->checkedStage = 1;  
+        }
     }
     public function checkCurrentContract($id)
     {
@@ -42,7 +45,7 @@ class Contract extends Component
     public function render()
     {
         $this->activeContract = Contracts::where('id', '=', Auth::user()->current_contract)->first();
-        $allContracts = Contracts::where('name', 'like', $this->search.'%')->get();
+        $allContracts = Contracts::where('name', 'like', $this->search.'%')->where('stage_id', $this->checkedStage)->get();
         return view('livewire.aside.contract', [
             'contracts' => $allContracts,
             'active' => $this->activeContract
