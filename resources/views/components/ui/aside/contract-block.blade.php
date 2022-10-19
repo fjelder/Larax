@@ -12,7 +12,7 @@ $classes = 'bg-white p-3 w-full flex flex-col rounded-sm dark:bg-neutral-800 sha
 }
 
 @endphp
-<button {{ $attributes->merge(['class' => $classes]) }}>
+<button {{ $attributes->merge(['class' => $classes]) }} wire:click="setCurrentContract({{$contract->id}})">
   <div
     class="flex xl:flex-row flex-col items-center justify-between font-medium text-neutral-900 dark:text-white pb-2 mb-2 xl:border-b border-neutral-200 border-opacity-75 dark:border-neutral-700 w-full text-xs">
     <div class="flex-shrink-0 mr-2 rounded-md flex justify-center items-center py-0.5 px-2 bg-transparent border">

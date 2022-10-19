@@ -23,7 +23,7 @@
 
 <body class="font-sans antialiased">
 
-  <x-jet-banner />
+
 
   <div
     class="bg-neutral-100 dark:bg-neutral-900 dark:text-white text-neutral-600 h-screen flex overflow-hidden text-sm">
@@ -37,6 +37,7 @@
         {{$aside}}
         @endif
         <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
+          <x-jet-banner />
           {{$slot}}
         </div>
       </div>

@@ -9,16 +9,39 @@ use Illuminate\Support\Facades\Auth;
 class Contract extends Component
 {
     public $search = '';
-    public $activeContract;
-    
-    public function mount(Request $request)
+    public function mount()
     {
-        $this->activeContract = Auth::user()->current_contract;
+        // $this->checkCurrentContract();
     }
-
+    public function checkCurrentContract($id)
+    {
+        if(Contracts::where('id', $id)->first())
+        {
+            return true;
+        }
+    }
+    public function setCurrentContract($id)
+    {
+        if($this->checkCurrentContract($id))
+        {
+            $user = Auth::user();
+            $user->current_contract = $id;
+            if($user->save())
+                return redirect()->route('contracts.show', $id);
+        }
+        else{
+            session()->flash('flash.banner', 'Nieprawidłowy numer kontraktu!');
+            session()->flash('flash.bannerStyle', 'danger');
+            return redirect()->route('contracts.show', Auth::user()->current_contract);
+        }
+    }
+    public function jumpToContract($id)
+    {
+        $this->setCurrentContract($id);
+    }
     public function render()
     {
-        $this->activeContract = Contracts::where('id', '=', $this->activeContract)->first();
+        $this->activeContract = Contracts::where('id', '=', Auth::user()->current_contract)->first();
         $allContracts = Contracts::where('name', 'like', $this->search.'%')->get();
         return view('livewire.aside.contract', [
             'contracts' => $allContracts,
