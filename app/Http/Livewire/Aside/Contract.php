@@ -2,20 +2,28 @@
 
 namespace App\Http\Livewire\Aside;
 use App\Models\Contract as Contracts;
+use App\Models\UserSettings;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\UserHelper;
 class Contract extends Component
 {
     public $search = '';
+    public $userSet;
     public $checkedStage;
     public function mount()
     {
-        if (!$this->checkedStage) {
-          $this->checkedStage = 1;  
-        }
+        $this->userSet = UserHelper::sets();
+        $this->checkedStage = $this->userSet->contract_filter_stage_id;
+        // $this->checkUserSettings();
     }
+    public function saveNewStage()
+    {
+       UserHelper::saveFilterStageContract($this->userSet, $this->checkedStage);
+    }
+    
     public function checkCurrentContract($id)
     {
         if(Contracts::where('id', $id)->first())
@@ -44,11 +52,11 @@ class Contract extends Component
     }
     public function render()
     {
-        $this->activeContract = Contracts::where('id', '=', Auth::user()->current_contract)->first();
+        $activeContract = Contracts::where('id', '=', $this->userSet->contract_current_id)->first();
         $allContracts = Contracts::where('name', 'like', $this->search.'%')->where('stage_id', $this->checkedStage)->get();
         return view('livewire.aside.contract', [
             'contracts' => $allContracts,
-            'active' => $this->activeContract
+            'active' => $activeContract
         ]);
     }
 }
