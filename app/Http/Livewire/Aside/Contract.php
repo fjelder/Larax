@@ -13,15 +13,27 @@ class Contract extends Component
     public $search = '';
     public $userSet;
     public $checkedStage;
+    public $sort = "desc";
     public function mount()
     {
         $this->userSet = UserHelper::sets();
         $this->checkedStage = $this->userSet->contract_filter_stage_id;
-        // $this->checkUserSettings();
+        $this->sort = $this->userSet->contract_sort_list;
     }
     public function saveNewStage()
     {
        UserHelper::saveFilterStageContract($this->userSet, $this->checkedStage);
+    }
+    public function saveCurrentContract($contract_id)
+    {
+       if(UserHelper::saveCurrentContract($this->userSet, $contract_id))
+        return redirect()->route('contracts.show', $this->userSet->contract_current_id);
+    }
+    public function switchSort($type)
+    {
+        $this->sort = $type;
+        $this->userSet->contract_sort_list = $type;
+        $this->userSet->save();
     }
     
     public function checkCurrentContract($id)
@@ -53,7 +65,10 @@ class Contract extends Component
     public function render()
     {
         $activeContract = Contracts::where('id', '=', $this->userSet->contract_current_id)->first();
-        $allContracts = Contracts::where('name', 'like', $this->search.'%')->where('stage_id', $this->checkedStage)->get();
+        $allContracts = Contracts::where('name', 'like', '%'.$this->search.'%')
+        ->where('stage_id', $this->checkedStage)
+        ->orderBy('id', $this->sort)
+        ->get();
         return view('livewire.aside.contract', [
             'contracts' => $allContracts,
             'active' => $activeContract

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('contract_current_id')->default(1);
             $table->tinyInteger('contract_filter_stage_id')->default(1);
-            $table->string('contract_sort_list')->default('ASC');
+            $table->string('contract_sort_list')->default('DESC');
             $table->timestamps();
         });
     }

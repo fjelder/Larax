@@ -27,4 +27,10 @@ class UserHelper
     $settings->save();
     return true;
   }
+  static function saveCurrentContract($settings, $contract_id)
+  {
+    $settings->contract_current_id = $contract_id;
+    $settings->save();
+    return true;
+  }
 }
