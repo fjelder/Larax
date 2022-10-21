@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-shrink-0 w-48 h-full border-r border-gray-200 xl:w-80 dark:border-gray-800 ">
+<div class="xl:flex flex-col flex-shrink-0 w-48 h-full border-r border-gray-200 xl:w-80 dark:border-gray-800 hidden">
   <!-- top -->
   <div class="p-5 border-b bg-gray-50 border-primary-800">
     <div class="text-xs text-primary-500 tracking-wider underline underline-offset-8 before:content-['#']"> Kontrakty
