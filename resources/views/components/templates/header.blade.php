@@ -1,5 +1,7 @@
-<div class="h-16 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
-    <div class="flex h-full text-gray-600 dark:text-gray-400">
+<div class="h-10 flex w-full border-b border-gray-200 dark:border-gray-800 shrink-0 box-content px-6">
+
+
+    <div class="flex h-full text-gray-600 dark:text-gray-400 items-stretch">
         <a href="#"
             class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">Company</a>
         <a href="#"

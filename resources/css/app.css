@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-svg .s0 {
-    @apply fill-primary-600;
+/* logo */
+.logo-font {
+    font-family: "Fredoka One", cursive;
 }
-
-aside {
+aside2 {
     @apply max-w-xs p-4 bg-transparent border shadow-lg border-neutral-300/30 basis-64 dark:border-neutral-600;
 }
 aside ul.additional-menu {

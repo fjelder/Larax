@@ -9,10 +9,12 @@ use Livewire\Component;
 
 class Contract extends Component
 {
+    protected $listeners = ['visibleAsideMenu'];
     public $search = '';
     public $userSet;
     public $checkedStage;
     public $sort = "desc";
+
     public function mount()
     {
         $this->userSet = UserHelper::sets();
@@ -36,7 +38,11 @@ class Contract extends Component
         $this->userSet->contract_sort_list = $type;
         $this->userSet->save();
     }
-
+    public function visibleAsideMenu($stay)
+    {
+        $this->userSet->open_aside_menu = $stay;
+        $this->userSet->save();
+    }
     public function checkCurrentContract($id)
     {
         if (Contracts::where('id', $id)->first()) {

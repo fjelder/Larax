@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('contract_current_id')->default(1);
             $table->tinyInteger('contract_filter_stage_id')->default(1);
             $table->string('contract_sort_list')->default('desc');
+            $table->boolean('open_aside_menu')->default(true);
             $table->timestamps();
         });
     }

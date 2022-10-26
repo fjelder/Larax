@@ -20,6 +20,9 @@ module.exports = {
                 secondary: colors.orange,
                 neutral: colors.gray,
             },
+            transitionProperty: {
+                width: "width",
+            },
         },
     },
 
